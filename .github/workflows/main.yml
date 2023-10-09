@@ -1,0 +1,26 @@
+name: Deploy Documentation
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - run: pip install mkdocs-material 
+      - name : update pwsh
+        run: |
+         sudo apt-get update
+         sudo apt-get upgrade
+         sudo snap remove powershell
+         sudo apt-get install powershell
+      - run: sudo apt-get install libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
+      - run: pip install "mkdocs-material[imaging]"
+      - run: mkdocs gh-deploy --force
