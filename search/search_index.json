@@ -1,0 +1,1 @@
+{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"DocuPage","text":""},{"location":"DockerIntro/","title":"Introduction to Docker","text":"","tags":["Docker"]},{"location":"WixDocs/","title":"Introduction to WiX Tool set","text":"","tags":["Wix"]}]}
